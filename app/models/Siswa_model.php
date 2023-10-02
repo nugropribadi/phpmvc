@@ -2,7 +2,7 @@
 
 class Siswa_model
 {
-    private $table = 'siswa';
+    private $table = 't_siswa';
     private $db;
 
     public function __construct()
