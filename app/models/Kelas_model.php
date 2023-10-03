@@ -1,8 +1,8 @@
 <?php
 
-class Siswa_model
+class Kelas_model
 {
-    private $table = 't_siswa';
+    private $table = 't_kelas';
     private $db;
 
     public function __construct()
@@ -10,22 +10,22 @@ class Siswa_model
         $this->db = new Database;
     }
 
-    public function getAllSiswa()
+    public function getAllKelas()
     {
         $this->db->query('SELECT * FROM ' . $this->table);
         return $this->db->resultSet();
     }
 
-    public function getSiswaById($id)
+    public function getKelasById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE f_idsiswa=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE f_idkelas=:id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }
 
-    public function tambahDataSiswa($data)
+    public function tambahDataKelas($data)
     {
-        $query = "INSERT INTO t_siswa 
+        $query = "INSERT INTO t_kelas 
         VALUES ('', :f_nama, :f_idkelas, :f_idjurusan)";
 
         $this->db->query($query);
@@ -38,9 +38,9 @@ class Siswa_model
         return $this->db->rowCount();
     }
 
-    public function hapusDataSiswa($id)
+    public function hapusDataKelas($id)
     {
-        $query = "DELETE FROM siswa WHERE id = :id";
+        $query = "DELETE FROM t_kelas WHERE id = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 
@@ -49,9 +49,9 @@ class Siswa_model
         return $this->db->rowCount();
     }
 
-    public function ubahDataSiswa($data)
+    public function ubahDataKelas($data)
     {
-        $query = "UPDATE siswa SET 
+        $query = "UPDATE t_kelas SET 
         nama = :nama,
         umur = :umur,
         kelas = :kelas,
@@ -73,10 +73,10 @@ class Siswa_model
         }
     }
 
-    public function cariDataSiswa()
+    public function cariDataKelas()
     {
         $keyword = $_POST['keyword'];
-        $query = "SELECT * FROM t_siswa WHERE f_nama LIKE :keyword";
+        $query = "SELECT * FROM t_kelas WHERE f_nama LIKE :keyword";
         $this->db->query($query);
         $this->db->bind('keyword', "%$keyword%");
         return $this->db->resultSet();

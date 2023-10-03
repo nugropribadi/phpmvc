@@ -1,20 +1,20 @@
 <?php
 
-class Siswa extends Controller
+class Kelas extends Controller
 {
     public function index()
     {
-        $data['judul'] = 'Daftar Nama Siswa';
-        $data['t_siswa'] = $this->model('Siswa_model')->getAllSiswa();
+        $data['judul'] = 'Daftar Nama Kelas';
+        $data['t_kelas'] = $this->model('Kelas_model')->getAllKelas();
         $this->view('templates/header', $data);
-        $this->view('siswa/index', $data);
+        $this->view('kelas/index', $data);
         $this->view('templates/footer');
     }
 
     public function detail($id)
     {
         $data['judul'] = 'Detail Siswa';
-        $data['t_siswa'] = $this->model('Siswa_model')->getSiswaById($id);
+        $data['siswa'] = $this->model('Siswa_model')->getSiswaById($id);
         $this->view('templates/header', $data);
         $this->view('siswa/detail', $data);
         $this->view('templates/footer');

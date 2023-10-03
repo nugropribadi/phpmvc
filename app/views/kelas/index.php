@@ -7,31 +7,31 @@
     <div class="row">
         <div class="col-lg-6">
             <button type="button" class="btn btn-primary tombolTambahData" data-bs-toggle="modal" data-bs-target="#formModal">
-                Tambah Data Siswa
+                Tambah Data Kelas
             </button>
         </div>
     </div>
 
     <div class="row mt-4">
         <div class="col-lg-6">
-            <form action="<?= BASEURL; ?>siswa/cari" method="post">
+            <form action="<?= BASEURL; ?>kelas/cari" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="cari siswa..." name="keyword" id="keyword" aria-describedby="button-addon" autocomplete="off">
+                    <input type="text" class="form-control" placeholder="cari kelas..." name="keyword" id="keyword" aria-describedby="button-addon" autocomplete="off">
                     <button class="btn btn-primary" type="submit" id="tombolCari">Cari</button>
                 </div>
             </form>
         </div>
     </div>
     <br><br>
-    <h1>Daftar Siswa</h1>
+    <h1>Daftar Kelas</h1>
     <ul class="list-group">
-        <?php foreach ($data['t_siswa'] as $siswa) : ?>
+        <?php foreach ($data['t_kelas'] as $kelas) : ?>
             <li class="list-group-item d-flex flex-row justify-content-between">
-                <?= $siswa['f_nama']; ?> | Kelas : <?= $siswa['f_idkelas'] ?> | Jurusan: <?= $siswa['f_idjurusan'] ?>
+                <?= $kelas['f_nama']; ?>
                 <div class="d-flex gap-2">
-                    <a href="<?= BASEURL; ?>siswa/detail/<?= $siswa['f_idsiswa'] ?>" class="badge text-bg-primary text-decoration-none float-right">detail</a>
-                    <a href="<?= BASEURL; ?>siswa/ubah/<?= $siswa['f_idsiswa'] ?>" class="badge text-bg-success text-decoration-none float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $siswa['f_idsiswa']; ?>">ubah</a>
-                    <a href="<?= BASEURL; ?>siswa/hapus/<?= $siswa['f_idsiswa'] ?>" class="badge text-bg-danger text-decoration-none float-right" onclick="return confirm('apakah anda yakin ingin mengahapus siswa yang bernama <?= $siswa['f_idsiswa'] ?>')">hapus</a>
+                    <a href="<?= BASEURL; ?>kelas/detail/<?= $kelas['f_idkelas'] ?>" class="badge text-bg-primary text-decoration-none float-right">detail</a>
+                    <a href="<?= BASEURL; ?>kelas/ubah/<?= $kelas['f_idkelas'] ?>" class="badge text-bg-success text-decoration-none float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $kelas['f_idkelas']; ?>">ubah</a>
+                    <a href="<?= BASEURL; ?>kelas/hapus/<?= $kelas['f_idkelas'] ?>" class="badge text-bg-danger text-decoration-none float-right" onclick="return confirm('apakah anda yakin ingin mengahapus kelas yang bernama <?= $kelas['f_idkelas'] ?>')">hapus</a>
                 </div>
             </li>
         <?php endforeach; ?>
@@ -45,11 +45,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="formModalLabel">Tambah Data Siswa</h1>
+                <h1 class="modal-title fs-5" id="formModalLabel">Tambah Data kelas</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="<?= BASEURL; ?>siswa/tambah" method="post">
+                <form action="<?= BASEURL; ?>kelas/tambah" method="post">
                     <input type="hidden" name="id" id="id">
 
                     <div class="mb-3">
