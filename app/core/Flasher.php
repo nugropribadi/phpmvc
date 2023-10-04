@@ -24,12 +24,12 @@ class Flasher
 
     public static function flashKelas()
     {
-        if (isset($_SESSION['flashKelas'])) {
-            echo '<div class="alert alert-' . $_SESSION['flashKelas']['tipe'] . ' alert-dismissible fade show" role="alert">
-        Data Kelas<strong> ' . $_SESSION['flashKelas']['pesan'] . '</strong>' . $_SESSION['flashKelas']['aksi'] . '
+        if (isset($_SESSION['flash'])) {
+            echo '<div class="alert alert-' . $_SESSION['flash']['tipe'] . ' alert-dismissible fade show" role="alert">
+        Data Kelas<strong> ' . $_SESSION['flash']['pesan'] . '</strong>' . $_SESSION['flash']['aksi'] . '
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>';
-            unset($_SESSION['flashKelas']);
+            unset($_SESSION['flash']);
         }
     }
 }
