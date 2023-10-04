@@ -63,7 +63,6 @@ $(function () {
             success: function (data) {
                 $('#f_nama').val(data.f_nama);
                 $('#f_idkelas').val(data.f_idkelas);
-                console.log(data);
             }
         });
 
