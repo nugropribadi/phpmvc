@@ -21,4 +21,15 @@ class Flasher
             unset($_SESSION['flash']);
         }
     }
+
+    public static function flashKelas()
+    {
+        if (isset($_SESSION['flashKelas'])) {
+            echo '<div class="alert alert-' . $_SESSION['flashKelas']['tipe'] . ' alert-dismissible fade show" role="alert">
+        Data Kelas<strong> ' . $_SESSION['flashKelas']['pesan'] . '</strong>' . $_SESSION['flashKelas']['aksi'] . '
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
+            unset($_SESSION['flashKelas']);
+        }
+    }
 }

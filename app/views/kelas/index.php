@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-lg-6">
-            <?php Flasher::flash(); ?>
+            <?php Flasher::flashKelas(); ?>
         </div>
     </div>
     <div class="row">
