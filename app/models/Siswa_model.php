@@ -12,7 +12,7 @@ class Siswa_model
 
     public function getAllSiswa()
     {
-        $this->db->query('SELECT * FROM ' . $this->table);
+        $this->db->query('SELECT * FROM t_siswa ORDER BY f_nama');
         return $this->db->resultSet();
     }
 
@@ -40,7 +40,7 @@ class Siswa_model
 
     public function hapusDataSiswa($id)
     {
-        $query = "DELETE FROM siswa WHERE id = :id";
+        $query = "DELETE FROM t_siswa WHERE f_idsiswa = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 
@@ -51,19 +51,17 @@ class Siswa_model
 
     public function ubahDataSiswa($data)
     {
-        $query = "UPDATE siswa SET 
-        nama = :nama,
-        umur = :umur,
-        kelas = :kelas,
-        jurusan = :jurusan
-        WHERE id = :id";
+        $query = "UPDATE t_siswa SET 
+        f_nama = :f_nama,
+        f_idkelas = :f_idkelas,
+        f_idjurusan = :f_idjurusan
+        WHERE f_idsiswa = :f_idsiswa";
 
         $this->db->query($query);
-        $this->db->bind(':nama', $data['nama']);
-        $this->db->bind(':umur', $data['umur']);
-        $this->db->bind(':kelas', $data['kelas']);
-        $this->db->bind(':jurusan', $data['jurusan']);
-        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':f_nama', $data['f_nama']);
+        $this->db->bind(':f_idkelas', $data['f_idkelas']);
+        $this->db->bind(':f_idjurusan', $data['f_idjurusan']);
+        $this->db->bind(':f_idsiswa', $data['f_idsiswa']);
 
         try {
             $this->db->execute();

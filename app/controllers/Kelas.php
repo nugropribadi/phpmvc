@@ -13,8 +13,8 @@ class Kelas extends Controller
 
     public function detail($id)
     {
-        $data['judul'] = 'Detail Siswa';
-        $data['siswa'] = $this->model('Siswa_model')->getSiswaById($id);
+        $data['judul'] = 'Detail Kelas';
+        $data['siswa'] = $this->model('Siswa_model')->getKelasById($id);
         $this->view('templates/header', $data);
         $this->view('siswa/detail', $data);
         $this->view('templates/footer');
@@ -48,18 +48,18 @@ class Kelas extends Controller
 
     public function getubah()
     {
-        echo json_encode($this->model('Siswa_model')->getsiswaById($_POST['id']));
+        echo json_encode($this->model('Kelas_model')->getKelasById($_POST['f_idkelas']));
     }
 
     public function ubah()
     {
-        if ($this->model('Siswa_model')->ubahDatasiswa($_POST) > 0) {
+        if ($this->model('Kelas_model')->ubahDataKelas($_POST) > 0) {
             Flasher::setFlash('berhasil ', 'diubah', 'success');
-            header('Location: ' . BASEURL . 'siswa');
+            header('Location: ' . BASEURL . 'kelas');
             exit;
         } else {
             Flasher::setFlash('gagal ', 'diubah', 'danger');
-            header('Location: ' . BASEURL . 'siswa');
+            header('Location: ' . BASEURL . 'kelas');
             exit;
         }
     }

@@ -48,7 +48,7 @@ class Siswa extends Controller
 
     public function getubah()
     {
-        echo json_encode($this->model('Siswa_model')->getsiswaById($_POST['id']));
+        echo json_encode($this->model('Siswa_model')->getsiswaById($_POST['f_idsiswa']));
     }
 
     public function ubah()

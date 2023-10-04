@@ -31,7 +31,7 @@
                 <div class="d-flex gap-2">
                     <a href="<?= BASEURL; ?>siswa/detail/<?= $siswa['f_idsiswa'] ?>" class="badge text-bg-primary text-decoration-none float-right">detail</a>
                     <a href="<?= BASEURL; ?>siswa/ubah/<?= $siswa['f_idsiswa'] ?>" class="badge text-bg-success text-decoration-none float-right tampilModalUbah" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $siswa['f_idsiswa']; ?>">ubah</a>
-                    <a href="<?= BASEURL; ?>siswa/hapus/<?= $siswa['f_idsiswa'] ?>" class="badge text-bg-danger text-decoration-none float-right" onclick="return confirm('apakah anda yakin ingin mengahapus siswa yang bernama <?= $siswa['f_idsiswa'] ?>')">hapus</a>
+                    <a href="<?= BASEURL; ?>siswa/hapus/<?= $siswa['f_idsiswa'] ?>" class="badge text-bg-danger text-decoration-none float-right" onclick="return confirm('apakah anda yakin ingin mengahapus siswa yang bernama <?= $siswa['f_nama'] ?>')">hapus</a>
                 </div>
             </li>
         <?php endforeach; ?>
@@ -50,33 +50,25 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>siswa/tambah" method="post">
-                    <input type="hidden" name="id" id="id">
+                    <input type="hidden" name="f_idsiswa" id="f_idsiswa">
 
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama: </label>
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" placeholder="Nama" class="form-control" id="f_nama" name="f_nama">
                     </div>
-                    <div class="mb-3">
-                        <label for="umur" class="form-label">Umur: </label>
-                        <input type="number" class="form-control" id="umur" name="umur">
-                    </div>
-                    <select class="form-select mt-4 mb-4" id="kelas" name="kelas" aria-label="Default select example">
-                        <option selected>Kelas:</option>
-                        <option value="10">Kelas: 10</option>
-                        <option value="11">Kelas: 11</option>
-                        <option value="12">Kelas: 12</option>
+                    <select class="form-select mt-4 mb-4" placeholder="kelas" id="f_idkelas" name="f_idkelas" aria-label="Default select example">
+                        <option selected>Kelas</option>
+                        <option value="1">Kelas: X</option>
+                        <option value="2">Kelas: XI</option>
+                        <option value="3">Kelas: XII</option>
                     </select>
-                    <select class="form-select mb-3" id="jurusan" name="jurusan" aria-label="Default select example">
-                        <option selected>Jurusan:</option>
-                        <option value="Rekayasa Perangkat Lunak">Jurusan: Rekayasa Perangkat
-                            Lunak</option>
-                        <option value="Desain Komunikasi Visual (1)">Jurusan: Desain Komunikasi
-                            Visual (1)</option>
-                        <option value="Desain Komunikasi Visual (2)">Jurusan: Desain Komunikasi
-                            Visual (2)</option>
-                        <option value="Bisnis Reatail">Jurusan: Bisnis Retail</option>
-                        <option value="Manajemen Perkantoran">Jurusan: Manajemen Perkantoran
-                        </option>
+                    <select class="form-select mb-3" placeholder="jurusan" id="f_idjurusan" name="f_idjurusan" aria-label="Default select example">
+                        <option selected>Jurusan</option>
+                        <option value="1">Jurusan: Akuntansi</option>
+                        <option value="2">Jurusan: Manajemen Perkantoran</option>
+                        <option value="3">Jurusan: Bisnis Ritel</option>
+                        <option value="4">Jurusan: Desain Komunikasi Visual</option>
+                        <option value="5">Jurusan: Rekayasa Perangkat Lunak</option>
                     </select>
             </div>
             <div class="modal-footer">

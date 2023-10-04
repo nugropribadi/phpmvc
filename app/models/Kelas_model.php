@@ -18,8 +18,8 @@ class Kelas_model
 
     public function getKelasById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE f_idkelas=:id');
-        $this->db->bind('id', $id);
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE f_idkelas=:f_idkelas');
+        $this->db->bind('f_idkelas', $id);
         return $this->db->single();
     }
 
@@ -52,18 +52,12 @@ class Kelas_model
     public function ubahDataKelas($data)
     {
         $query = "UPDATE t_kelas SET 
-        nama = :nama,
-        umur = :umur,
-        kelas = :kelas,
-        jurusan = :jurusan
-        WHERE id = :id";
+        f_nama = :f_nama
+        WHERE f_idkelas = :f_idkelas";
 
         $this->db->query($query);
-        $this->db->bind(':nama', $data['nama']);
-        $this->db->bind(':umur', $data['umur']);
-        $this->db->bind(':kelas', $data['kelas']);
-        $this->db->bind(':jurusan', $data['jurusan']);
-        $this->db->bind(':id', $data['id']);
+        $this->db->bind(':f_nama', $data['f_nama']);
+        $this->db->bind(':f_idkelas', $data['f_idkelas']);
 
         try {
             $this->db->execute();
