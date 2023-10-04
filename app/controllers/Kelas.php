@@ -14,34 +14,34 @@ class Kelas extends Controller
     public function detail($id)
     {
         $data['judul'] = 'Detail Kelas';
-        $data['siswa'] = $this->model('Siswa_model')->getKelasById($id);
+        $data['t_kelas'] = $this->model('Kelas_model')->getKelasById($id);
         $this->view('templates/header', $data);
-        $this->view('siswa/detail', $data);
+        $this->view('kelas/detail', $data);
         $this->view('templates/footer');
     }
 
     public function tambah()
     {
-        if ($this->model('Siswa_model')->tambahDataSiswa($_POST) > 0) {
+        if ($this->model('Kelas_model')->tambahDataKelas($_POST) > 0) {
             Flasher::setFlash('berhasil ', 'ditambahkan', 'success');
-            header('Location: ' . BASEURL . 'siswa');
+            header('Location: ' . BASEURL . 'kelas');
             exit;
         } else {
             Flasher::setFlash('gagal ', 'ditambahkan', 'danger');
-            header('Location: ' . BASEURL . 'siswa');
+            header('Location: ' . BASEURL . 'kelas');
             exit;
         }
     }
 
     public function hapus($id)
     {
-        if ($this->model('Siswa_model')->hapusDataSiswa($id) > 0) {
+        if ($this->model('Kelas_model')->hapusDataKelas($id) > 0) {
             Flasher::setFlash('berhasil ', 'dihapus', 'success');
-            header('Location: ' . BASEURL . 'siswa');
+            header('Location: ' . BASEURL . 'kelas');
             exit;
         } else {
             Flasher::setFlash('gagal ', 'dihapus', 'danger');
-            header('Location: ' . BASEURL . 'siswa');
+            header('Location: ' . BASEURL . 'kelas');
             exit;
         }
     }
@@ -66,10 +66,10 @@ class Kelas extends Controller
 
     public function cari()
     {
-        $data['judul'] = 'Daftar Siswa';
-        $data['t_siswa'] = $this->model('Siswa_model')->cariDataSiswa();
+        $data['judul'] = 'Daftar Kelas';
+        $data['t_kelas'] = $this->model('Kelas_model')->cariDataKelas();
         $this->view('templates/header', $data);
-        $this->view('siswa/index', $data);
+        $this->view('kelas/index', $data);
         $this->view('templates/footer');
     }
 }

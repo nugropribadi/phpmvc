@@ -26,13 +26,10 @@ class Kelas_model
     public function tambahDataKelas($data)
     {
         $query = "INSERT INTO t_kelas 
-        VALUES ('', :f_nama, :f_idkelas, :f_idjurusan)";
+        VALUES ('', :nama)";
 
         $this->db->query($query);
-        $this->db->bind('f_nama', $data['f_nama']);
-        $this->db->bind('f_idkelas', $data['f_idkelas']);
-        $this->db->bind('f_idjurusan', $data['f_idjurusan']);
-
+        $this->db->bind('nama', $data['f_nama']);
         $this->db->execute();
 
         return $this->db->rowCount();
@@ -40,7 +37,7 @@ class Kelas_model
 
     public function hapusDataKelas($id)
     {
-        $query = "DELETE FROM t_kelas WHERE id = :id";
+        $query = "DELETE FROM t_kelas WHERE f_idkelas = :id";
         $this->db->query($query);
         $this->db->bind('id', $id);
 

@@ -31,7 +31,7 @@
                 <div class="d-flex gap-2">
                     <a href="<?= BASEURL; ?>kelas/detail/<?= $kelas['f_idkelas'] ?>" class="badge text-bg-primary text-decoration-none float-right">detail</a>
                     <a href="<?= BASEURL; ?>kelas/ubah/<?= $kelas['f_idkelas'] ?>" class="badge text-bg-success text-decoration-none float-right tampilModalUbahKelas" data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $kelas['f_idkelas']; ?>">ubah</a>
-                    <a href="<?= BASEURL; ?>kelas/hapus/<?= $kelas['f_idkelas'] ?>" class="badge text-bg-danger text-decoration-none float-right" onclick="return confirm('apakah anda yakin ingin mengahapus kelas yang bernama <?= $kelas['f_idkelas'] ?>')">hapus</a>
+                    <a href="<?= BASEURL; ?>kelas/hapus/<?= $kelas['f_idkelas'] ?>" class="badge text-bg-danger text-decoration-none float-right" onclick="return confirm('apakah anda yakin ingin mengahapus kelas <?= $kelas['f_nama'] ?>')">hapus</a>
                 </div>
             </li>
         <?php endforeach; ?>

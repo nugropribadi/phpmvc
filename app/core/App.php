@@ -2,7 +2,7 @@
 
 class App
 {
-    protected $controller = 'home'; // Mengubah default controller menjadi 'about'
+    protected $controller = 'home'; //Mengubah default controller menjadi 'about'
     protected $method = 'index';
     protected $params = [];
 
