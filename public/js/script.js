@@ -3,7 +3,7 @@ $(function () {
     //Modal Siswa
     $('.tombolTambahData').on('click', function () {
         $('#formModalLabel').html('Tambah Data Siswa');
-        $('.modal-footer button[type=submit]').html('Tambah Data');
+        $('.modal-footer button[type=submit]').html('Tambah Data Siswa');
         $('.modal-body form').attr('action', 'http://localhost/phpmvc/public/siswa/tambah');
         $('#f_nama').val('');
         $('#f_idkelas').val('');
@@ -22,14 +22,14 @@ $(function () {
 
         $.ajax({
             url: 'http://localhost/phpmvc/public/siswa/getubah',
-            data: {f_idsiswa: id},
+            data: {f_id: id},
             method: 'post',
             dataType: 'json',
             success: function (data) {
                 $('#f_nama').val(data.f_nama);
                 $('#f_idkelas').val(data.f_idkelas);
                 $('#f_idjurusan').val(data.f_idjurusan);
-                $('#f_idsiswa').val(data.f_idsiswa);
+                $('#f_id').val(data.f_idsiswa);
                 console.log(data);
             }
         });

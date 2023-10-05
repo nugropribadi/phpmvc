@@ -61,7 +61,7 @@ class Siswa_model
         $this->db->bind(':f_nama', $data['f_nama']);
         $this->db->bind(':f_idkelas', $data['f_idkelas']);
         $this->db->bind(':f_idjurusan', $data['f_idjurusan']);
-        $this->db->bind(':f_idsiswa', $data['f_idsiswa']);
+        $this->db->bind(':f_idsiswa', $data['f_id']);
 
         try {
             $this->db->execute();

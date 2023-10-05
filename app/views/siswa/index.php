@@ -50,7 +50,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= BASEURL; ?>siswa/tambah" method="post">
-                    <input type="hidden" name="f_idsiswa" id="f_idsiswa">
+                    <input type="hidden" name="f_id" id="f_id">
 
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama: </label>
